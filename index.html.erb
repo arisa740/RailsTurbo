@@ -1,0 +1,12 @@
+<h1>หมวดหมู่</h1>
+<%= link_to 'สร้างหมวดหมู่ใหม่', new_category_path %>
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= category.name %> 
+      <%= link_to 'แก้ไข', edit_category_path(category) %> |
+      <%= link_to 'ลบ', category_path(category), method: :delete, data: { confirm: 'คุณแน่ใจหรือไม่?' } %>
+      <%= link_to 'ดูงาน', category_tasks_path(category) %>
+    </li>
+  <% end %>
+</ul>
